@@ -2,7 +2,7 @@
 <div class="navbar-custom">
     <ul class="list-unstyled topnav-menu float-right mb-0">
 
-        <li class="d-none d-sm-block">
+        <!--li class="d-none d-sm-block">
             <form class="app-search">
                 <div class="app-search-box">
                     <div class="input-group">
@@ -15,16 +15,16 @@
                     </div>
                 </div>
             </form>
-        </li>
+        </li-->
 
-        <li class="dropdown notification-list">
+        <!--li class="dropdown notification-list">
             <a class="nav-link dropdown-toggle  waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                 <i class="fe-bell noti-icon"></i>
                 <span class="badge badge-danger rounded-circle noti-icon-badge">9</span>
             </a>
             <div class="dropdown-menu dropdown-menu-right dropdown-lg">
 
-                <!-- item-->
+                
                 <div class="dropdown-item noti-title">
                     <h5 class="m-0">
                         <span class="float-right">
@@ -37,7 +37,7 @@
 
                 <div class="slimscroll noti-scroll">
 
-                    <!-- item-->
+                    
                     <a href="javascript:void(0);" class="dropdown-item notify-item active">
                         <div class="notify-icon">
                             <img src="assets/images/users/user-1.jpg" class="img-fluid rounded-circle" alt="" />
@@ -48,7 +48,7 @@
                         </p>
                     </a>
 
-                    <!-- item-->
+                    
                     <a href="javascript:void(0);" class="dropdown-item notify-item">
                         <div class="notify-icon bg-primary">
                             <i class="mdi mdi-comment-account-outline"></i>
@@ -58,7 +58,7 @@
                         </p>
                     </a>
 
-                    <!-- item-->
+                    
                     <a href="javascript:void(0);" class="dropdown-item notify-item">
                         <div class="notify-icon">
                             <img src="assets/images/users/user-4.jpg" class="img-fluid rounded-circle" alt="" />
@@ -69,7 +69,7 @@
                         </p>
                     </a>
 
-                    <!-- item-->
+                    
                     <a href="javascript:void(0);" class="dropdown-item notify-item">
                         <div class="notify-icon bg-warning">
                             <i class="mdi mdi-account-plus"></i>
@@ -79,7 +79,7 @@
                         </p>
                     </a>
 
-                    <!-- item-->
+                    
                     <a href="javascript:void(0);" class="dropdown-item notify-item">
                         <div class="notify-icon bg-info">
                             <i class="mdi mdi-comment-account-outline"></i>
@@ -89,7 +89,7 @@
                         </p>
                     </a>
 
-                    <!-- item-->
+                    
                     <a href="javascript:void(0);" class="dropdown-item notify-item">
                         <div class="notify-icon bg-secondary">
                             <i class="mdi mdi-heart"></i>
@@ -101,7 +101,7 @@
                     </a>
                 </div>
 
-                <!-- All-->
+                
                 <a href="javascript:void(0);" class="dropdown-item text-center text-primary notify-item notify-all">
                     View all
                     <i class="fi-arrow-right"></i>
@@ -118,24 +118,24 @@
                 </span>
             </a>
             <div class="dropdown-menu dropdown-menu-right profile-dropdown ">
-                <!-- item-->
+                
                 <div class="dropdown-header noti-title">
                     <h6 class="text-overflow m-0">Welcome !</h6>
                 </div>
 
-                <!-- item-->
+                
                 <a href="javascript:void(0);" class="dropdown-item notify-item">
                     <i class="fe-user"></i>
                     <span>My Account</span>
                 </a>
 
-                <!-- item-->
+                
                 <a href="javascript:void(0);" class="dropdown-item notify-item">
                     <i class="fe-settings"></i>
                     <span>Settings</span>
                 </a>
 
-                <!-- item-->
+                
                 <a href="javascript:void(0);" class="dropdown-item notify-item">
                     <i class="fe-lock"></i>
                     <span>Lock Screen</span>
@@ -143,7 +143,7 @@
 
                 <div class="dropdown-divider"></div>
 
-                <!-- item-->
+                
                 <a href="javascript:void(0);" class="dropdown-item notify-item">
                     <i class="fe-log-out"></i>
                     <span>Logout</span>
@@ -156,21 +156,21 @@
             <a href="javascript:void(0);" class="nav-link right-bar-toggle waves-effect waves-light">
                 <i class="fe-settings noti-icon"></i>
             </a>
-        </li>
+        </li-->
 
 
     </ul>
 
     <!-- LOGO -->
     <div class="logo-box">
-        <a href="index.html" class="logo text-center">
+        <a href="/" class="logo text-center">
             <span class="logo-lg">
-                <img src="assets/images/logo-light.png" alt="" height="18">
-                <!-- <span class="logo-lg-text-light">UBold</span> -->
+                <!--img src="assets/images/logo-light.png" alt="" height="18"-->
+                <span class="logo-lg-text-light">Vietlott</span>
             </span>
             <span class="logo-sm">
-                <!-- <span class="logo-sm-text-dark">U</span> -->
-                <img src="assets/images/logo-sm.png" alt="" height="24">
+                <!--span class="logo-sm-text-light">Vietlott</span-->
+                <!--img src="assets/images/logo-sm.png" alt="" height="24"-->
             </span>
         </a>
     </div>
@@ -182,31 +182,31 @@
             </button>
         </li>
 
-        <li class="dropdown d-none d-lg-block">
+        <!--li class="dropdown d-none d-lg-block">
             <a class="nav-link dropdown-toggle waves-effect waves-light" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
                 Create New
                 <i class="mdi mdi-chevron-down"></i>
             </a>
             <div class="dropdown-menu">
-                <!-- item-->
+                
                 <a href="javascript:void(0);" class="dropdown-item">
                     <i class="fe-briefcase mr-1"></i>
                     <span>New Projects</span>
                 </a>
 
-                <!-- item-->
+                
                 <a href="javascript:void(0);" class="dropdown-item">
                     <i class="fe-user mr-1"></i>
                     <span>Create Users</span>
                 </a>
 
-                <!-- item-->
+                
                 <a href="javascript:void(0);" class="dropdown-item">
                     <i class="fe-bar-chart-line- mr-1"></i>
                     <span>Revenue Report</span>
                 </a>
 
-                <!-- item-->
+                
                 <a href="javascript:void(0);" class="dropdown-item">
                     <i class="fe-settings mr-1"></i>
                     <span>Settings</span>
@@ -214,7 +214,7 @@
 
                 <div class="dropdown-divider"></div>
 
-                <!-- item-->
+                
                 <a href="javascript:void(0);" class="dropdown-item">
                     <i class="fe-headphones mr-1"></i>
                     <span>Help & Support</span>
@@ -325,7 +325,7 @@
                 </div>
 
             </div>
-        </li>
+        </li-->
     </ul>
 </div>
 <!-- end Topbar -->

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Power655Controller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,5 +19,5 @@ Route::get("/", [HomeController::class, "index"]);
 
 Route::resources([
     "home" => HomeController::class,
-    //'posts' => PostController::class,
+    "power655" => Power655Controller::class,
 ]);
