@@ -2,12 +2,6 @@
   "private": true,
   "scripts": {
     "dev": "vite",
-    "development": "mix",
-    "watch": "mix watch",
-    "watch-poll": "mix watch -- --watch-options-poll=1000",
-    "hot": "mix watch --hot",
-    "prod": "npm run production",
-    "production": "mix --production",
     "build": "vite build",
     "prepare": "node -e \"try { require('husky').install() } catch (e) {if (e.code !== 'MODULE_NOT_FOUND') throw e}\"",
     "prettier": "prettier --end-of-line=lf app/**/* routes/**/* --write"
