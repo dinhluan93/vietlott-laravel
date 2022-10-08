@@ -2,7 +2,7 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 npm run prettier
-composer phpstan
+#composer phpstan
 composer phpcbf
 composer phpcs
 #php ./vendor/bin/phpunit

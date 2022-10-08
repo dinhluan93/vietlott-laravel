@@ -13,16 +13,16 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Mail;
+
 //use JWTAuth;
 
 class UserService
 {
     //private UserRepositoryInterface $userRepository;
-    
-    public function __construct(
-        //UserRepositoryInterface $userRepository,
-    ) {
+
+    public function __construct()
+    {
         //$this->userRepository = $userRepository;
     }
-    
+    //UserRepositoryInterface $userRepository,
 }
