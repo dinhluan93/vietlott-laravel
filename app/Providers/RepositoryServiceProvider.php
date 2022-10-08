@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use App\Repositories\Interfaces\RepositoryInterface;
+use App\Repositories\Eloquent\BaseRepository;
 use App\Repositories\Interfaces\UserRepositoryInterface;
 
 class RepositoryServiceProvider extends ServiceProvider
