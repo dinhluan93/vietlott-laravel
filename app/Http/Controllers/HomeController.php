@@ -25,6 +25,5 @@ class HomeController extends Controller
      */
     public function show($id)
     {
-    
     }
 }
