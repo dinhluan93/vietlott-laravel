@@ -42,7 +42,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="pagin m-3">{{$data1->links()}}</div>
+            <div class="pagin m-3"></div>
         </div>
     </div>
     <div class="col-2">
@@ -68,7 +68,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="pagin m-3">{{$data2->links()}}</div>
+            <div class="pagin m-3"></div>
         </div>
     </div>
     <div class="col-2">
@@ -94,7 +94,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="pagin m-3">{{$data3->links()}}</div>
+            <div class="pagin m-3"></div>
         </div>
     </div>
     <div class="col-2">
@@ -120,7 +120,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="pagin m-3">{{$data4->links()}}</div>
+            <div class="pagin m-3"></div>
         </div>
     </div>
     <div class="col-2">
@@ -146,7 +146,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="pagin m-3">{{$data5->links()}}</div>
+            <div class="pagin m-3"></div>
         </div>
     </div>
     <div class="col-2">
@@ -172,7 +172,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="pagin m-3">{{$data6->links()}}</div>
+            <div class="pagin m-3"></div>
         </div>
     </div>
     <div class="col-2">
@@ -198,7 +198,7 @@
                     </tbody>
                 </table>
             </div>
-            <div class="pagin m-3">{{$data7->links()}}</div>
+            <div class="pagin m-3"></div>
         </div>
     </div>
 </div>

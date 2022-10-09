@@ -32,10 +32,11 @@ class Power655Repository extends BaseRepository implements
     public function getNumberDuplicated($number = 1)
     {
         return $this->model
-            ->select("number_" . $number, DB::raw('COUNT(*) as number_count'))
+            ->select("number_" . $number, DB::raw("COUNT(*) as number_count"))
             ->groupBy("number_" . $number)
-            ->havingRaw('count(id) > ?', [1])
+            ->havingRaw("count(id) > ?", [1])
             ->orderBy("number_count", "DESC")
-            ->paginate(config("pagination.power655_limit"));
+            ->limit(config("pagination.power655_limit"))
+            ->get();
     }
 }
