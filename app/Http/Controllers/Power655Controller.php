@@ -58,14 +58,14 @@ class Power655Controller extends Controller
         $data = [];
         //dd($data1);
         for ($i = 0; $i < 15; $i++) {
-            $data[$data1[$i]['number_1']] = $data1[$i]["number_count"];
+            $data[$data1[$i]["number_1"]] = $data1[$i]["number_count"];
         }
-        foreach($data as $key => $value){
-            echo ($key);
+        foreach ($data as $key => $value) {
+            echo $key;
             // if (array_key_exists($data2[$i]["number_2"], $data)) {
-                //dd($data['11']);
-                //echo $data->{""};
-                //dd($data2[$i]["number_2"]);
+            //dd($data['11']);
+            //echo $data->{""};
+            //dd($data2[$i]["number_2"]);
             //}
         }
         dd($data);
@@ -106,7 +106,10 @@ class Power655Controller extends Controller
         //dd($data);
         //get list 6/55
         $data655 = $this->power655Service->listPower655();
-        return view("power655.suggest_number", ["data" => $data, "data655" => $data655]);
+        return view("power655.suggest_number", [
+            "data" => $data,
+            "data655" => $data655,
+        ]);
     }
 
     /**
