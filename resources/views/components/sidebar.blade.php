@@ -16,7 +16,13 @@
         </a>
         <ul class="nav-second-level" aria-expanded="false">
             <li>
-                <a href="/power655">Power 6/55 List</a>
+                <a href="{{route('power655.index')}}">List All</a>
+            </li>
+            <li>
+                <a href="{{route('power655.duplicated')}}">Top Duplicated</a>
+            </li>
+            <li>
+                <a href="{{route('power655.suggestNumber')}}">Suggest Duplicated</a>
             </li>
         </ul>
     </li>

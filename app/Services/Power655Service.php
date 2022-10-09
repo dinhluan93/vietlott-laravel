@@ -29,4 +29,9 @@ class Power655Service
     {
         return $this->power655Repository->getPower655();
     }
+
+    public function listDuplicated($number = 1)
+    {
+        return $this->power655Repository->getNumberDuplicated($number);
+    }
 }
