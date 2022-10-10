@@ -3,28 +3,30 @@
     <li class="menu-title">Navigation</li>
 
     <li>
-        <a href="javascript: void(0);">
+        <a href="/">
             <i class="fe-airplay"></i>
-            <span class="badge badge-success badge-pill float-right">4</span>
-            <span> Dashboards </span>
+            <span> Dashboard </span>
+        </a>
+    </li>
+    <li>
+        <a href="javascript: void(0);">
+            <i class="fe-gift"></i>
+            <span> Power 6/55 </span>
+            <span class="menu-arrow"></span>
         </a>
         <ul class="nav-second-level" aria-expanded="false">
             <li>
-                <a href="index.html">Dashboard 1</a>
+                <a href="{{route('power655.index')}}">List All</a>
             </li>
             <li>
-                <a href="dashboard-2.html">Dashboard 2</a>
+                <a href="{{route('power655.duplicated')}}">Top Duplicated</a>
             </li>
             <li>
-                <a href="dashboard-3.html">Dashboard 3</a>
-            </li>
-            <li>
-                <a href="dashboard-4.html">Dashboard 4</a>
+                <a href="{{route('power655.suggestNumber')}}">Suggest Duplicated</a>
             </li>
         </ul>
     </li>
-
-    <li>
+    <!--li>
         <a href="javascript: void(0);">
             <i class="fe-pocket"></i>
             <span> Apps </span>
@@ -526,5 +528,5 @@
                 </ul>
             </li>
         </ul>
-    </li>
+    </li-->
 </ul>

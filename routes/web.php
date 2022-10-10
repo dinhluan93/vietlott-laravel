@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Power655Controller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,7 +17,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get("/", [HomeController::class, "index"]);
 
+Route::get("/power655/top-duplicate", [Power655Controller::class, "topDuplicate"])->name("power655.duplicated");
+Route::get("/power655/suggest-number", [Power655Controller::class, "suggestNumber"])->name("power655.suggestNumber");
+
 Route::resources([
     "home" => HomeController::class,
-    //'posts' => PostController::class,
+    "power655" => Power655Controller::class,
 ]);
