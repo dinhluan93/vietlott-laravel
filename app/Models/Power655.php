@@ -16,6 +16,6 @@ class Power655 extends Model
 
     public function price()
     {
-        return $this->hasOne(Power655Price::class, "power_655_id", 'id');
+        return $this->hasOne(Power655Price::class, "power_655_id", "id");
     }
 }

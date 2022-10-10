@@ -27,178 +27,24 @@
                     <thead>
                         <tr>
                             <th>NO.</th>
-                            <th>Number 1</th>
+                            <th>Number</th>
                             <th>Repeat</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($data1 as $key => $value)
+                        @php $count = 0; @endphp
+                        @foreach($data as $key => $value)
+                        @php $count ++; @endphp
                         <tr>
-                            <td class="{{$key<=4?'text-danger':''}}{{$key>=5 && $key<=9?'text-warning':''}}{{$key>=10 && $key<=14?'text-success':''}}">#{{$key+1}}</td>
-                            <td><span class="btn btn-sm btn-danger btn-rounded">{{$value->number_1}}</span></td>
-                            <td><span class="btn btn-sm btn-success btn-rounded">{{$value->number_count}}</span></td>
+                            <td>{{$count}}</td>
+                            <td><span class="number-match border-info border">{{$key}}</span></td>
+                            <td><span class="number-match border-danger border">{{$value}}</span></td>
                         </tr>
                         @endforeach
                     </tbody>
                 </table>
             </div>
-            <div class="pagin m-3">{{$data1->links()}}</div>
-        </div>
-    </div>
-    <div class="col-2">
-        <div class="card body">
-            <div class="table-responsive">
-                <table class="table table-hover table-centered mb-0">
-                    <thead>
-                        <tr>
-                            <th>NO.</th>
-                            <th>Number 2</th>
-                            <th>Repeat</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($data2 as $key => $value)
-                        <tr>
-                            <td class="{{$key<=4?'text-danger':''}}{{$key>=5 && $key<=9?'text-warning':''}}{{$key>=10 && $key<=14?'text-success':''}}">#{{$key+1}}</td>
-                            <td><span class="btn btn-sm btn-danger btn-rounded">{{$value->number_2}}</span></td>
-                            <td><span class="btn btn-sm btn-success btn-rounded">{{$value->number_count}}</span></td>
-                            <td></td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
-            <div class="pagin m-3">{{$data2->links()}}</div>
-        </div>
-    </div>
-    <div class="col-2">
-        <div class="card body">
-            <div class="table-responsive">
-                <table class="table table-hover table-centered mb-0">
-                    <thead>
-                        <tr>
-                            <th>NO.</th>
-                            <th>Number 3</th>
-                            <th>Repeat</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($data3 as $key => $value)
-                        <tr>
-                            <td class="{{$key<=4?'text-danger':''}}{{$key>=5 && $key<=9?'text-warning':''}}{{$key>=10 && $key<=14?'text-success':''}}">#{{$key+1}}</td>
-                            <td><span class="btn btn-sm btn-danger btn-rounded">{{$value->number_3}}</span></td>
-                            <td><span class="btn btn-sm btn-success btn-rounded">{{$value->number_count}}</span></td>
-                            <td></td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
-            <div class="pagin m-3">{{$data3->links()}}</div>
-        </div>
-    </div>
-    <div class="col-2">
-        <div class="card body">
-            <div class="table-responsive">
-                <table class="table table-hover table-centered mb-0">
-                    <thead>
-                        <tr>
-                            <th>NO.</th>
-                            <th>Number 4</th>
-                            <th>Repeat</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($data4 as $key => $value)
-                        <tr>
-                            <td class="{{$key<=4?'text-danger':''}}{{$key>=5 && $key<=9?'text-warning':''}}{{$key>=10 && $key<=14?'text-success':''}}">#{{$key+1}}</td>
-                            <td><span class="btn btn-sm btn-danger btn-rounded">{{$value->number_4}}</span></td>
-                            <td><span class="btn btn-sm btn-success btn-rounded">{{$value->number_count}}</span></td>
-                            <td></td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
-            <div class="pagin m-3">{{$data4->links()}}</div>
-        </div>
-    </div>
-    <div class="col-2">
-        <div class="card body">
-            <div class="table-responsive">
-                <table class="table table-hover table-centered mb-0">
-                    <thead>
-                        <tr>
-                            <th>NO.</th>
-                            <th>Number 5</th>
-                            <th>Repeat</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($data5 as $key => $value)
-                        <tr>
-                            <td class="{{$key<=4?'text-danger':''}}{{$key>=5 && $key<=9?'text-warning':''}}{{$key>=10 && $key<=14?'text-success':''}}">#{{$key+1}}</td>
-                            <td><span class="btn btn-sm btn-danger btn-rounded">{{$value->number_5}}</span></td>
-                            <td><span class="btn btn-sm btn-success btn-rounded">{{$value->number_count}}</span></td>
-                            <td></td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
-            <div class="pagin m-3">{{$data5->links()}}</div>
-        </div>
-    </div>
-    <div class="col-2">
-        <div class="card body">
-            <div class="table-responsive">
-                <table class="table table-hover table-centered mb-0">
-                    <thead>
-                        <tr>
-                            <th>NO.</th>
-                            <th>Number 6</th>
-                            <th>Repeat</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($data6 as $key => $value)
-                        <tr>
-                            <td class="{{$key<=4?'text-danger':''}}{{$key>=5 && $key<=9?'text-warning':''}}{{$key>=10 && $key<=14?'text-success':''}}">#{{$key+1}}</td>
-                            <td><span class="btn btn-sm btn-danger btn-rounded">{{$value->number_6}}</span></td>
-                            <td><span class="btn btn-sm btn-success btn-rounded">{{$value->number_count}}</span></td>
-                            <td></td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
-            <div class="pagin m-3">{{$data6->links()}}</div>
-        </div>
-    </div>
-    <div class="col-2">
-        <div class="card body">
-            <div class="table-responsive">
-                <table class="table table-hover table-centered mb-0">
-                    <thead>
-                        <tr>
-                            <th>NO.</th>
-                            <th>Number 7</th>
-                            <th>Repeat</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($data7 as $key => $value)
-                        <tr>
-                            <td class="{{$key<=4?'text-danger':''}}{{$key>=5 && $key<=9?'text-warning':''}}{{$key>=10 && $key<=14?'text-success':''}}">#{{$key+1}}</td>
-                            <td><span class="btn btn-sm btn-danger btn-rounded">{{$value->number_7}}</span></td>
-                            <td><span class="btn btn-sm btn-success btn-rounded">{{$value->number_count}}</span></td>
-                            <td></td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
-            <div class="pagin m-3">{{$data7->links()}}</div>
+            <div class="pagin m-3"></div>
         </div>
     </div>
 </div>
