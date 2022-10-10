@@ -29,7 +29,7 @@ class Power655Controller extends Controller
     {
         $data = $this->power655Service->listDuplicatedNumber();
         return view("power655.duplicated", [
-            "data" => $data
+            "data" => $data,
         ]);
     }
 

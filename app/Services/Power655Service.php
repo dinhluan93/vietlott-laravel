@@ -46,49 +46,55 @@ class Power655Service
         for ($i = 0; $i < $totalNumber; $i++) {
             if (array_key_exists($data2[$i]["number_2"], $data)) {
                 $key_existed = $data2[$i]["number_2"];
-                $data[$key_existed] =  $data[$key_existed] + $data2[$i]["number_count"];
+                $data[$key_existed] =
+                    $data[$key_existed] + $data2[$i]["number_count"];
             } else {
-                $data[$data2[$i]["number_2"]] =  $data2[$i]["number_count"];
+                $data[$data2[$i]["number_2"]] = $data2[$i]["number_count"];
             }
         }
         for ($i = 0; $i < $totalNumber; $i++) {
             if (array_key_exists($data3[$i]["number_3"], $data)) {
                 $key_existed = $data3[$i]["number_3"];
-                $data[$key_existed] =  $data[$key_existed] +  $data3[$i]["number_count"];
+                $data[$key_existed] =
+                    $data[$key_existed] + $data3[$i]["number_count"];
             } else {
-                $data[$data3[$i]["number_3"]] =  $data3[$i]["number_count"];
+                $data[$data3[$i]["number_3"]] = $data3[$i]["number_count"];
             }
         }
         for ($i = 0; $i < $totalNumber; $i++) {
             if (array_key_exists($data4[$i]["number_4"], $data)) {
                 $key_existed = $data4[$i]["number_4"];
-                $data[$key_existed] =  $data[$key_existed] +   $data4[$i]["number_count"];
+                $data[$key_existed] =
+                    $data[$key_existed] + $data4[$i]["number_count"];
             } else {
-                $data[$data4[$i]["number_4"]] =  $data4[$i]["number_count"];
+                $data[$data4[$i]["number_4"]] = $data4[$i]["number_count"];
             }
         }
         for ($i = 0; $i < $totalNumber; $i++) {
             if (array_key_exists($data5[$i]["number_5"], $data)) {
                 $key_existed = $data5[$i]["number_5"];
-                $data[$key_existed] =  $data[$key_existed] +  $data5[$i]["number_count"];
+                $data[$key_existed] =
+                    $data[$key_existed] + $data5[$i]["number_count"];
             } else {
-                $data[$data5[$i]["number_5"]] =  $data5[$i]["number_count"];
+                $data[$data5[$i]["number_5"]] = $data5[$i]["number_count"];
             }
         }
         for ($i = 0; $i < $totalNumber; $i++) {
             if (array_key_exists($data6[$i]["number_6"], $data)) {
                 $key_existed = $data6[$i]["number_6"];
-                $data[$key_existed] =  $data[$key_existed] +  $data6[$i]["number_count"];
+                $data[$key_existed] =
+                    $data[$key_existed] + $data6[$i]["number_count"];
             } else {
-                $data[$data6[$i]["number_6"]] =  $data6[$i]["number_count"];
+                $data[$data6[$i]["number_6"]] = $data6[$i]["number_count"];
             }
         }
         for ($i = 0; $i < $totalNumber; $i++) {
             if (array_key_exists($data7[$i]["number_7"], $data)) {
                 $key_existed = $data7[$i]["number_7"];
-                $data[$key_existed] =  $data[$key_existed] +  $data7[$i]["number_count"];
+                $data[$key_existed] =
+                    $data[$key_existed] + $data7[$i]["number_count"];
             } else {
-                $data[$data7[$i]["number_7"]] =  $data7[$i]["number_count"];
+                $data[$data7[$i]["number_7"]] = $data7[$i]["number_count"];
             }
         }
         return collect($data)->sortDesc();
