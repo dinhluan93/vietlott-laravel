@@ -23,189 +23,200 @@
     <div class="col-md-12">
         <div class="card-box">
             <h4 class="header-title mb-3">Top Duplicated Number</h4>
-            <div class="table-responsive">
-                <table class="table table-hover table-centered mb-0">
-                    <thead>
-                        <tr>
-                            <th>NO.</th>
-                            <th>NO. 1</th>
-                            <th>NO. 2</th>
-                            <th>NO. 3</th>
-                            <th>NO. 4</th>
-                            <th>NO. 5</th>
-                            <th>NO. 6</th>
-                            <th>NO. 7</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($data as $key => $value)
-                        <tr>
-                            <td>#{{$key+1}}</td>
-                            <td>
-                                <div class="d-flex">
-                                    <span class="number-match border-info border">
-                                        {{$value[0][0]}}
-                                    </span>
-                                    <span class="number-match border-warning border ml-1">
-                                        {{$value[0][1]}}
-                                    </span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="d-flex">
-                                    <span class="number-match border-info border">
-                                        {{$value[1][0]}}
-                                    </span>
-                                    <span class="number-match border-warning border ml-1">
-                                        {{$value[1][1]}}
-                                    </span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="d-flex">
-                                    <span class="number-match border-info border">
-                                        {{$value[2][0]}}
-                                    </span>
-                                    <span class="number-match border-warning border ml-1">
-                                        {{$value[2][1]}}
-                                    </span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="d-flex">
-                                    <span class="number-match border-info border">
-                                        {{$value[3][0]}}
-                                    </span>
-                                    <span class="number-match border-warning border ml-1">
-                                        {{$value[3][1]}}
-                                    </span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="d-flex">
-                                    <span class="number-match border-info border">
-                                        {{$value[4][0]}}
-                                    </span>
-                                    <span class="number-match border-warning border ml-1">
-                                        {{$value[4][1]}}
-                                    </span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="d-flex">
-                                    <span class="number-match border-info border">
-                                        {{$value[5][0]}}
-                                    </span>
-                                    <span class="number-match border-warning border ml-1">
-                                        {{$value[5][1]}}
-                                    </span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="d-flex">
-                                    <span class="number-match border-info border">
-                                        {{$value[6][0]}}
-                                    </span>
-                                    <span class="number-match border-warning border ml-1">
-                                        {{$value[6][1]}}
-                                    </span>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
+            <ul class="top-number-duplicated">
+                @foreach($data as $key => $value)
+                <li>
+                    <div class="d-flex">
+                        <span class="number-match border-info border">
+                            {{$key}}
+                        </span>
+                        <span class="number-match border-warning border ml-1">
+                            {{$value}}
+                        </span>
+                    </div>
+                </li>
+                @endforeach
+            </ul>
         </div>
     </div>
-    <div class="col-md-12">
-        <div class="card-box">
-            <h4 class="header-title mb-3">Match Number</h4>
-            <div class="table-responsive">
-                <table class="table table-hover table-centered mb-0">
-                    <thead>
-                        <tr class="">
-                            <th>Stages</th>
-                            <th>Date</th>
-                            <th>NO. 1</th>
-                            <th>NO. 2</th>
-                            <th>NO. 3</th>
-                            <th>NO. 4</th>
-                            <th>NO. 5</th>
-                            <th>NO. 6</th>
-                            <th>NO. 7</th>
-                            <th>Price 1</th>
-                            <th>Price 2</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($data655 as $key => $value)
-                        <tr class="bg-secondary text-white">
-                            <td>{{$value->stages}}</td>
-                            <td>{{$value->date_run}}</td>
-                            <td>{{$value->number_1}}</td>
-                            <td>{{$value->number_2}}</td>
-                            <td>{{$value->number_3}}</td>
-                            <td>{{$value->number_4}}</td>
-                            <td>{{$value->number_5}}</td>
-                            <td>{{$value->number_6}}</td>
-                            <td>{{$value->number_7}}</td>
-                            <td>{{number_format($value->price->jackpot_1,0,"",".")}}</td>
-                            <td>{{number_format($value->price->jackpot_2,0,"",".")}}</td>
-                        </tr>
-                        @foreach($data as $keyDup => $valueDuplicate)
-                        <tr>
-                            <td colspan="2" class="text-center">#{{$keyDup+1}}</td>
-                            <td>
+</div>
+<div class="col-md-12">
+    <div class="card-box">
+        <h4 class="header-title mb-3">Match Number</h4>
+        <div class="table-responsive">
+            <table class="table table-hover table-centered mb-0">
+                <thead>
+                    <tr class="">
+                        <th>Stages</th>
+                        <th>Date</th>
+                        <th>NO. 1</th>
+                        <th>NO. 2</th>
+                        <th>NO. 3</th>
+                        <th>NO. 4</th>
+                        <th>NO. 5</th>
+                        <th>NO. 6</th>
+                        <th>NO. 7</th>
+                        <th>Price 1</th>
+                        <th>Price 2</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($data655 as $key => $value)
+                    <tr class="bg-secondary text-white">
+                        <td>{{$value->stages}}</td>
+                        <td>{{$value->date_run}}</td>
+                        <td>{{$value->number_1}}</td>
+                        <td>{{$value->number_2}}</td>
+                        <td>{{$value->number_3}}</td>
+                        <td>{{$value->number_4}}</td>
+                        <td>{{$value->number_5}}</td>
+                        <td>{{$value->number_6}}</td>
+                        <td>{{$value->number_7}}</td>
+                        <td>{{number_format($value->price->jackpot_1,0,"",".")}}</td>
+                        <td>{{number_format($value->price->jackpot_2,0,"",".")}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="text-center"></td>
+                        @php $count = 0; $numberMatch=[]; $listNumber=[]; @endphp
+                        <td colspan="7">
+                            <ul class="top-number-duplicated">
+                                @foreach($data as $keyDup => $valueDuplicate)
+                                @php $count ++; $listNumber[]=$keyDup; @endphp
+                                <li class="d-flex">
+                                    @switch($keyDup)
+                                    @case($value->number_1)
+                                    <span class="number-match border-info border bg-success text-white">{{$keyDup}}</span>
+                                    @php $numberMatch[]=$value->number_1; @endphp
+                                    @break
+                                    @case($value->number_2)
+                                    <span class="number-match border-info border bg-success text-white">{{$keyDup}}</span>
+                                    @php $numberMatch[]=$value->number_2; @endphp
+                                    @break
+                                    @case($value->number_3)
+                                    <span class="number-match border-info border bg-success text-white">{{$keyDup}}</span>
+                                    @php $numberMatch[]=$value->number_3; @endphp
+                                    @break
+                                    @case($value->number_4)
+                                    <span class="number-match border-info border bg-success text-white">{{$keyDup}}</span>
+                                    @php $numberMatch[]=$value->number_4; @endphp
+                                    @break
+                                    @case($value->number_5)
+                                    <span class="number-match border-info border bg-success text-white">{{$keyDup}}</span>
+                                    @php $numberMatch[]=$value->number_5; @endphp
+                                    @break
+                                    @case($value->number_6)
+                                    <span class="number-match border-info border bg-success text-white">{{$keyDup}}</span>
+                                    @php $numberMatch[]=$value->number_6; @endphp
+                                    @break
+                                    @case($value->number_7)
+                                    <span class="number-match border-info border bg-success text-white">{{$keyDup}}</span>
+                                    @php $numberMatch[]=$value->number_7; @endphp
+                                    @break
+                                    @default
+                                    <span class="number-match border-info border">{{$keyDup}}</span>
+                                    @endswitch
+                                    <span class="number-match border ml-1 border-warning">{{$valueDuplicate}}</span>
+                                </li>
+                                @endforeach
+                            </ul>
+                            [{{implode(',',collect($listNumber)->sort()->all())}}]
+                        </td>
+                        <td colspan="2" class="text-center"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2" class="text-center"></td>
+                        <td colspan="7">
+                            <div class="d-flex align-items-center">
                                 <div class="d-flex">
-                                    <span class="number-match border-info border {{$value->number_1==$valueDuplicate[0][0]? 'bg-success text-white' : ''}}">{{$valueDuplicate[0][0]}}</span>
-                                    <span class="number-match border ml-1 border-warning">{{$valueDuplicate[0][1]}}</span>
+                                    @php
+                                    $numberMatch = collect($numberMatch)->sort()->all();
+                                    $number_7=0;
+                                    $totalMatch = 0;
+                                    @endphp
+
+                                    @if(count($numberMatch)>0)
+                                    @foreach($numberMatch as $valueMatch)
+
+                                    @if($valueMatch!=$value->number_7)
+                                    <span class="number-match border-info border bg-success text-white mr-3">{{$valueMatch}}</span>
+                                    @php $totalMatch += +1; @endphp
+                                    @else
+                                    @php $number_7 = $valueMatch; @endphp
+                                    @endif
+
+                                    @endforeach
+                                    @if(count($numberMatch)==1)
+                                    <span class="number-match border-info border mr-3"></span>
+                                    <span class="number-match border-info border mr-3"></span>
+                                    <span class="number-match border-info border mr-3"></span>
+                                    <span class="number-match border-info border mr-3"></span>
+                                    <span class="number-match border-info border mr-3"></span>
+                                    @endif
+                                    @if(count($numberMatch)==2)
+                                    <span class="number-match border-info border mr-3"></span>
+                                    <span class="number-match border-info border mr-3"></span>
+                                    <span class="number-match border-info border mr-3"></span>
+                                    <span class="number-match border-info border mr-3"></span>
+                                    @if($number_7>0)
+                                    <span class="number-match border-info border mr-3"></span>
+                                    @endif
+                                    @endif
+                                    @if(count($numberMatch)==3)
+                                    <span class="number-match border-info border mr-3"></span>
+                                    <span class="number-match border-info border mr-3"></span>
+                                    <span class="number-match border-info border mr-3"></span>
+                                    @if($number_7>0)
+                                    <span class="number-match border-info border mr-3"></span>
+                                    @endif
+                                    @endif
+                                    @if(count($numberMatch)==4)
+                                    <span class="number-match border-info border mr-3"></span>
+                                    <span class="number-match border-info border mr-3"></span>
+                                    @if($number_7>0)
+                                    <span class="number-match border-info border mr-3"></span>
+                                    @endif
+                                    @endif
+                                    @if(count($numberMatch)==5)
+                                    <span class="number-match border-info border mr-3"></span>
+                                    @if($number_7>0)
+                                    <span class="number-match border-info border mr-3"></span>
+                                    @endif
+                                    @endif
+                                    @if(count($numberMatch)==6)
+                                    @if($number_7>0)
+                                    <span class="number-match border-info border mr-3"></span>
+                                    @endif
+                                    @endif
+                                    <span class="number-match border-info border bg-warning text-white mr-3">{{$number_7}}</span>
+                                    @endif
                                 </div>
-                            </td>
-                            <td>
-                                <div class="d-flex">
-                                    <span class="number-match border-info border {{$value->number_2==$valueDuplicate[1][0]? 'bg-success text-white' : ''}}">{{$valueDuplicate[1][0]}}</span>
-                                    <span class="number-match border ml-1 border-warning">{{$valueDuplicate[1][1]}}</span>
+                                <div {{$totalMatch}}>
+                                    = match {{count($numberMatch)}} number
+                                    @if($totalMatch==6)
+                                    = <b class="text-danger">{{number_format($value->price->jackpot_1,0,"",".")}}</b> VND
+                                    @endif
+                                    @if($totalMatch==5 && $number_7>0)
+                                    = <b class="text-danger">{{number_format($value->price->jackpot_2,0,"",".")}}</b> VND
+                                    @endif
+                                    @if($totalMatch==5 && $number_7==0)
+                                    = <b class="text-danger">40.000.000</b> VND
+                                    @endif
+                                    @if($totalMatch==4)
+                                    = <b class="text-danger">500.000</b> VND
+                                    @endif
+                                    @if($totalMatch==3)
+                                    = <b class="text-danger">500.000</b> VND
+                                    @endif
                                 </div>
-                            </td>
-                            <td>
-                                <div class="d-flex">
-                                    <span class="number-match border-info border {{$value->number_2==$valueDuplicate[2][0]? 'bg-success text-white' : ''}}">{{$valueDuplicate[2][0]}}</span>
-                                    <span class="number-match border ml-1 border-warning">{{$valueDuplicate[2][1]}}</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="d-flex">
-                                    <span class="number-match border-info border {{$value->number_3==$valueDuplicate[3][0]? 'bg-success text-white' : ''}}">{{$valueDuplicate[3][0]}}</span>
-                                    <span class="number-match border ml-1 border-warning">{{$valueDuplicate[3][1]}}</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="d-flex">
-                                    <span class="number-match border-info border {{$value->number_4==$valueDuplicate[4][0]? 'bg-success text-white' : ''}}">{{$valueDuplicate[4][0]}}</span>
-                                    <span class="number-match border ml-1 border-warning">{{$valueDuplicate[4][1]}}</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="d-flex">
-                                    <span class="number-match border-info border {{$value->number_5==$valueDuplicate[5][0]? 'bg-success text-white' : ''}}">{{$valueDuplicate[5][0]}}</span>
-                                    <span class="number-match border ml-1 border-warning">{{$valueDuplicate[5][1]}}</span>
-                                </div>
-                            </td>
-                            <td>
-                                <div class="d-flex">
-                                    <span class="number-match border-info border {{$value->number_6==$valueDuplicate[6][0]? 'bg-success text-white' : ''}}">{{$valueDuplicate[6][0]}}</span>
-                                    <span class="number-match border ml-1 border-warning">{{$valueDuplicate[6][1]}}</span>
-                                </div>
-                            </td>
-                            <td colspan="3" class="text-center">
-                        </tr>
-                        @endforeach
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
-            <div class="pagin m-3">{{$data655->links()}}</div>
+                            </div>
+                        </td>
+                        <td colspan="2" class="text-center"></td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div>
+        <div class="pagin m-3">{{$data655->links()}}</div>
     </div>
 </div>
 @endsection
