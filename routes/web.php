@@ -17,8 +17,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get("/", [HomeController::class, "index"]);
 
-Route::get("/power655/top-duplicate", [Power655Controller::class, "topDuplicate"])->name("power655.duplicated");
-Route::get("/power655/suggest-number", [Power655Controller::class, "suggestNumber"])->name("power655.suggestNumber");
+Route::get("/power655/top-duplicate", [
+    Power655Controller::class,
+    "topDuplicate",
+])->name("power655.duplicated");
+Route::get("/power655/suggest-number", [
+    Power655Controller::class,
+    "suggestNumber",
+])->name("power655.suggestNumber");
 
 Route::resources([
     "home" => HomeController::class,
