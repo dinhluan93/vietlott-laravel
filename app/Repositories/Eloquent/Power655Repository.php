@@ -34,8 +34,8 @@ class Power655Repository extends BaseRepository implements
         return $this->model
             ->select("number_" . $number, DB::raw("COUNT(*) as number_count"))
             ->groupBy("number_" . $number)
-            ->havingRaw("count(id) > ?", [1])
-            ->orderBy("number_count", "DESC")
+            ->havingRaw("count(id) <= ?", [30])
+            ->orderBy("number_count", "ASC")
             ->limit(config("pagination.power655_limit"))
             ->get();
     }
