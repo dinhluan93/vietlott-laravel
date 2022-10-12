@@ -127,6 +127,8 @@ class Power655Service
 
     private function randomNumberInArray($data, $isDuplicate = false)
     {
-        return ($isDuplicate) ? $this->randomNumberInArray($data) :  array_rand($data, 1);
+        return $isDuplicate
+            ? $this->randomNumberInArray($data)
+            : array_rand($data, 1);
     }
 }
