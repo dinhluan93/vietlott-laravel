@@ -52,6 +52,9 @@
             <h4 class="header-title mb-3">Random Number</h4>
             <div class="table-responsive">
                 <table class="table table-hover table-centered mb-0">
+                    <?php 
+                    //var_dump($randomLottery);
+                    ?>
                     <thead>
                         <tr class="">
                             <th>NO. 1</th>
@@ -65,7 +68,7 @@
                     <tbody>
                         @foreach($randomLottery as $key => $value)
                         <tr>
-                            <td>{{$value[0]}}</td>
+                            <td>{{$key}}</td>
                             <td>{{$value[1]}}</td>
                             <td>{{$value[2]}}</td>
                             <td>{{$value[3]}}</td>

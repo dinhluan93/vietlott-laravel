@@ -102,33 +102,24 @@ class Power655Service
 
     public function randomLottery($data)
     {
-        //collect($data)->sortDesc();
         $totalRow = 10;
         $lottery = [];
         for ($i = 0; $i < $totalRow; $i++) {
-            $lotteryRow = [];
             $number = [];
             for ($j = 0; $j < 6; $j++) {
                 $numberRandom = $this->randomNumberInArray($data);
                 if (in_array($numberRandom, $number)) {
-                    $numberRandomNew = $this->randomNumberInArray($data, true);
-                    array_push($number, $numberRandomNew);
-                } else {
-                    array_push($number, $numberRandom);
+                    $numberRandom = $this->randomNumberInArray($data);
                 }
-                array_push($lotteryRow, collect($number)->sortDesc());
+                array_push($number,$numberRandom);
             }
-            dd($number);
-            //var_dump($number);
-            //array_push($lottery, collect($lotteryRow)->sort());
+            array_push($lottery, collect($number)->sort());
         }
         return $lottery;
     }
 
-    private function randomNumberInArray($data, $isDuplicate = false)
+    private function randomNumberInArray($data)
     {
-        return $isDuplicate
-            ? $this->randomNumberInArray($data)
-            : array_rand($data, 1);
+        return array_rand($data, 1);
     }
 }

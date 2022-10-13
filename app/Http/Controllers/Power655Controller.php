@@ -33,6 +33,7 @@ class Power655Controller extends Controller
             $dataSuggest[] = $key;
         }
         $randomLottery = $this->power655Service->randomLottery($dataSuggest);
+        //dd($randomLottery);
         return view("power655.duplicated", [
             "data" => $data,
             "randomLottery" => $randomLottery,
