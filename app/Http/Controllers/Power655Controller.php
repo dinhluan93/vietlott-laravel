@@ -28,15 +28,22 @@ class Power655Controller extends Controller
     public function topDuplicate()
     {
         $data = $this->power655Service->listDuplicatedNumber();
+        $dataSuggest = [];
+        foreach ($data as $key => $value) {
+            $dataSuggest[] = $key;
+        }
+        $randomLottery = $this->power655Service->randomLottery($dataSuggest);
+        //dd($randomLottery);
         return view("power655.duplicated", [
             "data" => $data,
+            "randomLottery" => $randomLottery,
         ]);
     }
 
     public function suggestNumber()
     {
         //get top duplicated
-        $data = $this->power655Service->listDuplicatedNumber(3)->all();
+        $data = $this->power655Service->listDuplicatedNumber(4)->all();
         //get list 6/55
         $data655 = $this->power655Service->listPower655();
         return view("power655.suggest_number", [

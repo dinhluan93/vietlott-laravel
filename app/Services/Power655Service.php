@@ -99,4 +99,27 @@ class Power655Service
         }
         return collect($data)->sortDesc();
     }
+
+    public function randomLottery($data)
+    {
+        $totalRow = 10;
+        $lottery = [];
+        for ($i = 0; $i < $totalRow; $i++) {
+            $number = [];
+            for ($j = 0; $j < 6; $j++) {
+                $numberRandom = $this->randomNumberInArray($data);
+                if (in_array($numberRandom, $number)) {
+                    $numberRandom = $this->randomNumberInArray($data);
+                }
+                array_push($number,$numberRandom);
+            }
+            array_push($lottery, collect($number)->sort());
+        }
+        return $lottery;
+    }
+
+    private function randomNumberInArray($data)
+    {
+        return array_rand($data, 1);
+    }
 }
