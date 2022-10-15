@@ -6,6 +6,7 @@ use App\Enums\EkycStatus;
 use App\Exceptions\BusinessException;
 use App\Models\User;
 use App\Repositories\Interfaces\Power655RepositoryInterface;
+use App\Repositories\Interfaces\Power655GenerateRepositoryInterface;
 use Exception;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -19,10 +20,14 @@ use Illuminate\Support\Facades\Mail;
 class Power655Service
 {
     private Power655RepositoryInterface $power655Repository;
+    private Power655GenerateRepositoryInterface $power655GenerateRepository;
 
-    public function __construct(Power655RepositoryInterface $power655Repository)
-    {
+    public function __construct(
+        Power655RepositoryInterface $power655Repository,
+        Power655GenerateRepositoryInterface $power655GenerateRepository
+    ) {
         $this->power655Repository = $power655Repository;
+        $this->power655GenerateRepository = $power655GenerateRepository;
     }
 
     public function listPower655()
@@ -102,24 +107,69 @@ class Power655Service
 
     public function randomLottery($data)
     {
-        $totalRow = 10;
+        $totalRow = 40;
         $lottery = [];
         for ($i = 0; $i < $totalRow; $i++) {
             $number = [];
             for ($j = 0; $j < 6; $j++) {
                 $numberRandom = $this->randomNumberInArray($data);
-                if (in_array($numberRandom, $number)) {
-                    $numberRandom = $this->randomNumberInArray($data);
+                if (!in_array($numberRandom, $number)) {
+                    array_push($number, $numberRandom);
                 }
-                array_push($number,$numberRandom);
             }
-            array_push($lottery, collect($number)->sort());
+            if (count($number)==6) {
+                $numberCollectSorted = collect($number)->sort();
+                array_push($lottery, $numberCollectSorted);
+                $numberSorted = array_values((array) $numberCollectSorted->values())[0];
+                $this->saveRandomLottery655(
+                    $numberSorted[0],
+                    $numberSorted[1],
+                    $numberSorted[2],
+                    $numberSorted[3],
+                    $numberSorted[4],
+                    $numberSorted[5]
+                );
+            }
         }
         return $lottery;
     }
 
+    public function saveRandomLottery655($number1, $number2, $number3, $number4, $number5, $number6)
+    {
+        $power655Latest = $this->power655Repository->getOneLatest();
+        $lotteryExisted = $this->power655GenerateRepository->checkExistLottery(
+            $power655Latest->stages,
+            $number1,
+            $number2,
+            $number3,
+            $number4,
+            $number5,
+            $number6
+        );
+        if (!$lotteryExisted) {
+            DB::beginTransaction();
+            try {
+                $this->power655GenerateRepository->create([
+                    "stages" => $power655Latest->stages,
+                    "number_1" => $number1,
+                    "number_2" => $number2,
+                    "number_3" => $number3,
+                    "number_4" => $number4,
+                    "number_5" => $number5,
+                    "number_6" => $number6,
+                ]);
+                DB::commit();
+                return true;
+            } catch (Exception $e) {
+                Log::error($e->getMessage());
+                DB::rollback();
+                throw $e;
+            }
+        }
+    }
+
     private function randomNumberInArray($data)
     {
-        return array_rand($data, 1);
+        return $data[array_rand($data, 1)];
     }
 }
