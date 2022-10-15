@@ -19,8 +19,15 @@ class Power655GenerateRepository extends BaseRepository implements
         return Power655Generate::class;
     }
 
-    public function checkExistLottery($stages, $number1, $number2, $number3, $number4, $number5, $number6)
-    {
+    public function checkExistLottery(
+        $stages,
+        $number1,
+        $number2,
+        $number3,
+        $number4,
+        $number5,
+        $number6
+    ) {
         return $this->model
             ->where("stages", $stages)
             ->where("number_1", $number1)

@@ -11,6 +11,14 @@ class Power655Generate extends Model
 
     protected $table = "power_655_generate";
 
-    protected $fillable = ["stages","number_1", "number_2", "number_3", "number_4", "number_5", "number_6"];
+    protected $fillable = [
+        "stages",
+        "number_1",
+        "number_2",
+        "number_3",
+        "number_4",
+        "number_5",
+        "number_6",
+    ];
     public $timestamps = true;
 }

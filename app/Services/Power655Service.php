@@ -117,10 +117,12 @@ class Power655Service
                     array_push($number, $numberRandom);
                 }
             }
-            if (count($number)==6) {
+            if (count($number) == 6) {
                 $numberCollectSorted = collect($number)->sort();
                 array_push($lottery, $numberCollectSorted);
-                $numberSorted = array_values((array) $numberCollectSorted->values())[0];
+                $numberSorted = array_values(
+                    (array) $numberCollectSorted->values()
+                )[0];
                 $this->saveRandomLottery655(
                     $numberSorted[0],
                     $numberSorted[1],
@@ -134,8 +136,14 @@ class Power655Service
         return $lottery;
     }
 
-    public function saveRandomLottery655($number1, $number2, $number3, $number4, $number5, $number6)
-    {
+    public function saveRandomLottery655(
+        $number1,
+        $number2,
+        $number3,
+        $number4,
+        $number5,
+        $number6
+    ) {
         $power655Latest = $this->power655Repository->getOneLatest();
         $lotteryExisted = $this->power655GenerateRepository->checkExistLottery(
             $power655Latest->stages,
