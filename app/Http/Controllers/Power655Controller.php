@@ -33,23 +33,35 @@ class Power655Controller extends Controller
             //$dataSuggest[] = $key;
             array_push($dataSuggest, $key);
         }
-        $randomLottery = $this->power655Service->randomLottery($dataSuggest);
+        //$randomLottery = $this->power655Service->randomLottery($dataSuggest);
         return view("power655.duplicated", [
             "data" => $data,
-            "randomLottery" => $randomLottery,
+            //"randomLottery" => $randomLottery,
         ]);
     }
 
-    public function suggestNumber()
+    public function suggestNumber(Request $request)
     {
+        $stage = $request->has("stages") ? explode(",", $request->stages) : [];
         //get top duplicated
-        $data = $this->power655Service->listDuplicatedNumber(4)->all();
+        $data = $this->power655Service->listDuplicatedNumber(4, $stage)->all();
         //get list 6/55
         $data655 = $this->power655Service->listPower655();
+        $data655->withPath(
+            route("power655.suggestNumber") . $request->has("stages")
+                ? "?stages=" . $request->stages
+                : ""
+        );
+        $stages = $this->power655Service->getStagesLatest();
         return view("power655.suggest_number", [
             "data" => $data,
             "data655" => $data655,
+            "stages" => $stages,
         ]);
+    }
+
+    public function randomWithMatch(Request $request)
+    {
     }
 
     /**

@@ -30,20 +30,36 @@ class Power655Service
         $this->power655GenerateRepository = $power655GenerateRepository;
     }
 
-    public function listPower655()
+    public function listPower655($stages = [])
     {
-        return $this->power655Repository->getPower655();
+        return $this->power655Repository->getPower655($stages);
     }
 
-    public function listDuplicatedNumber($totalNumber = 10)
+    public function listDuplicatedNumber($totalNumber = 10, $stage = [])
     {
-        $data1 = $this->power655Repository->getNumberDuplicated(1)->toArray();
-        $data2 = $this->power655Repository->getNumberDuplicated(2)->toArray();
-        $data3 = $this->power655Repository->getNumberDuplicated(3)->toArray();
-        $data4 = $this->power655Repository->getNumberDuplicated(4)->toArray();
-        $data5 = $this->power655Repository->getNumberDuplicated(5)->toArray();
-        $data6 = $this->power655Repository->getNumberDuplicated(6)->toArray();
-        $data7 = $this->power655Repository->getNumberDuplicated(7)->toArray();
+        $oneLatest = $this->power655Repository->getOneLatest();
+        $stages = !empty($stage) ? $stage : [$oneLatest->stages];
+        $data1 = $this->power655Repository
+            ->getNumberDuplicated(1, $stages)
+            ->toArray();
+        $data2 = $this->power655Repository
+            ->getNumberDuplicated(2, $stages)
+            ->toArray();
+        $data3 = $this->power655Repository
+            ->getNumberDuplicated(3, $stages)
+            ->toArray();
+        $data4 = $this->power655Repository
+            ->getNumberDuplicated(4, $stages)
+            ->toArray();
+        $data5 = $this->power655Repository
+            ->getNumberDuplicated(5, $stages)
+            ->toArray();
+        $data6 = $this->power655Repository
+            ->getNumberDuplicated(6, $stages)
+            ->toArray();
+        $data7 = $this->power655Repository
+            ->getNumberDuplicated(7, $stages)
+            ->toArray();
         $data = [];
         for ($i = 0; $i < $totalNumber; $i++) {
             $data[$data1[$i]["number_1"]] = $data1[$i]["number_count"];
@@ -123,14 +139,14 @@ class Power655Service
                 $numberSorted = array_values(
                     (array) $numberCollectSorted->values()
                 )[0];
-                $this->saveRandomLottery655(
+                /*$this->saveRandomLottery655(
                     $numberSorted[0],
                     $numberSorted[1],
                     $numberSorted[2],
                     $numberSorted[3],
                     $numberSorted[4],
                     $numberSorted[5]
-                );
+                );*/
             }
         }
         return $lottery;
@@ -154,7 +170,7 @@ class Power655Service
             $number5,
             $number6
         );
-        if (!$lotteryExisted) {
+        if ($lotteryExisted == 0) {
             DB::beginTransaction();
             try {
                 $this->power655GenerateRepository->create([
@@ -179,5 +195,10 @@ class Power655Service
     private function randomNumberInArray($data)
     {
         return $data[array_rand($data, 1)];
+    }
+
+    public function getStagesLatest($limit = 10)
+    {
+        return $this->power655Repository->getStagesLatest($limit);
     }
 }

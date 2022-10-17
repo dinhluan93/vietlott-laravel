@@ -22,20 +22,25 @@ class Power655Repository extends BaseRepository implements
     /**
      * @return mixed
      */
-    public function getPower655()
+    public function getPower655($stages = [])
     {
-        return $this->model
+        $query = $this->model;
+        if (!empty($stages)) {
+            $query = $query->whereNotIn("stages", $stages);
+        }
+        return $query
             ->orderBy("stages", "DESC")
             ->paginate(config("pagination.limit"));
     }
 
-    public function getNumberDuplicated($number = 1)
+    public function getNumberDuplicated($number = 1, $stage = [])
     {
         return $this->model
             ->select("number_" . $number, DB::raw("COUNT(*) as number_count"))
             ->groupBy("number_" . $number)
-            ->havingRaw("count(id) <= ?", [30])
-            ->orderBy("number_count", "ASC")
+            ->havingRaw("count(id) < ?", [20])
+            ->whereNotIn("stages", $stage)
+            ->orderBy("number_count", "DESC")
             ->limit(config("pagination.power655_limit"))
             ->get();
     }
@@ -43,5 +48,14 @@ class Power655Repository extends BaseRepository implements
     public function getOneLatest()
     {
         return $this->model->orderBy("stages", "DESC")->first();
+    }
+
+    public function getStagesLatest($limit = 10)
+    {
+        return $this->model
+            ->select("id", "stages")
+            ->limit($limit)
+            ->orderBy("stages", "DESC")
+            ->get();
     }
 }
