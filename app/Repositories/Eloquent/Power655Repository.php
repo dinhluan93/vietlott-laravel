@@ -39,4 +39,9 @@ class Power655Repository extends BaseRepository implements
             ->limit(config("pagination.power655_limit"))
             ->get();
     }
+
+    public function getOneLatest()
+    {
+        return $this->model->orderBy("stages", "DESC")->first();
+    }
 }
