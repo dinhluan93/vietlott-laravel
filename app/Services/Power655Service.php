@@ -229,7 +229,7 @@ class Power655Service
             $data1[] = $value->number_1;
         }
         //20 number , is different Number 1
-        $number2 = $this->power655Repository->topDuplicateNumber(2, 20); 
+        $number2 = $this->power655Repository->topDuplicateNumber(2, 20);
         foreach ($number2 as $value) {
             if (!in_array($value->number_2, $data1)) {
                 //dd($value->number_2);
@@ -237,7 +237,7 @@ class Power655Service
             }
         }
         //25 number , is different Number 2 and number 1
-        $number3 = $this->power655Repository->topDuplicateNumber(3, 25); 
+        $number3 = $this->power655Repository->topDuplicateNumber(3, 25);
         foreach ($number3 as $value) {
             if (
                 !in_array($value->number_3, $data2) &&
@@ -247,7 +247,7 @@ class Power655Service
             }
         }
         //25 number , is different Number 3 and number 2
-        $number4 = $this->power655Repository->topDuplicateNumber(4, 25); 
+        $number4 = $this->power655Repository->topDuplicateNumber(4, 25);
         foreach ($number4 as $value) {
             if (
                 !in_array($value->number_4, $data3) &&
@@ -257,7 +257,7 @@ class Power655Service
             }
         }
         //10 number , is different Number 4 and number 3
-        $number5 = $this->power655Repository->topDuplicateNumber(5, 13); 
+        $number5 = $this->power655Repository->topDuplicateNumber(5, 13);
         foreach ($number5 as $value) {
             if (
                 !in_array($value->number_5, $data4) &&
@@ -267,7 +267,7 @@ class Power655Service
             }
         }
         //13 number , is different Number 5 and number 4
-        $number6 = $this->power655Repository->topDuplicateNumber(6, 23); 
+        $number6 = $this->power655Repository->topDuplicateNumber(6, 23);
         foreach ($number6 as $value) {
             if (
                 !in_array($value->number_6, $data5) &&
