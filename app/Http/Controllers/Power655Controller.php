@@ -62,6 +62,26 @@ class Power655Controller extends Controller
 
     public function randomWithMatch(Request $request)
     {
+        $topDuplicateNumber = $this->power655Service->topDuplicateNumber();
+        $topNumber1 = $topDuplicateNumber[0];
+        $topNumber2 = $topDuplicateNumber[1];
+        $topNumber3 = $topDuplicateNumber[2];
+        $topNumber4 = $topDuplicateNumber[3];
+        $topNumber5 = $topDuplicateNumber[4];
+        $topNumber6 = $topDuplicateNumber[5];
+        $topNumber7 = $topDuplicateNumber[6];
+        $data = $this->power655Service->listAfterTopDuplicateNumber();
+        return view("power655.random_with_match", [
+            "data" => $data,
+            "dataAll" => collect(array_merge(...$data))->sort(),
+            "topNumber1" => $topNumber1,
+            "topNumber2" => $topNumber2,
+            "topNumber3" => $topNumber3,
+            "topNumber4" => $topNumber4,
+            "topNumber5" => $topNumber5,
+            "topNumber6" => $topNumber6,
+            "topNumber7" => $topNumber7,
+        ]);
     }
 
     /**

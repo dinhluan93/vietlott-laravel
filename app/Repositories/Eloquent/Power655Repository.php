@@ -58,4 +58,19 @@ class Power655Repository extends BaseRepository implements
             ->orderBy("stages", "DESC")
             ->get();
     }
+
+    public function topDuplicateNumber($number, $limit = 0)
+    {
+        $query = $this->model
+            ->select(
+                "number_" . $number,
+                DB::raw("COUNT(number_" . $number . ") as number_count")
+            )
+            ->groupBy("number_" . $number)
+            ->orderBy("number_count", "DESC");
+        if ($limit > 0) {
+            $query = $query->limit($limit);
+        }
+        return $query->get();
+    }
 }

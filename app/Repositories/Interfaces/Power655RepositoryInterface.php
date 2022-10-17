@@ -8,4 +8,5 @@ interface Power655RepositoryInterface extends RepositoryInterface
     public function getNumberDuplicated();
     public function getOneLatest();
     public function getStagesLatest($limit = 10);
+    public function topDuplicateNumber($number, $limit = 0);
 }
