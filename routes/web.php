@@ -21,10 +21,16 @@ Route::get("/power655/top-duplicate", [
     Power655Controller::class,
     "topDuplicate",
 ])->name("power655.duplicated");
+
 Route::get("/power655/suggest-number", [
     Power655Controller::class,
     "suggestNumber",
 ])->name("power655.suggestNumber");
+
+Route::get("/power655/random-with-match", [
+    Power655Controller::class,
+    "randomWithMatch",
+])->name("power655.randomWithMatch");
 
 Route::resources([
     "home" => HomeController::class,
