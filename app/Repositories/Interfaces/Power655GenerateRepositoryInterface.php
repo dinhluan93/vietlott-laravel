@@ -13,4 +13,7 @@ interface Power655GenerateRepositoryInterface extends RepositoryInterface
         $number5,
         $number6
     );
+    public function checkTodayAdded();
+    public function getGenerate();
+    public function getGenerateToday();
 }
