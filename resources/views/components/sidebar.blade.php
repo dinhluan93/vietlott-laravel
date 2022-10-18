@@ -24,6 +24,9 @@
             <li>
                 <a href="{{route('power655.suggestNumber')}}">Suggest Duplicated</a>
             </li>
+            <li>
+                <a href="{{route('power655.randomWithMatch')}}">Random with Match</a>
+            </li>
         </ul>
     </li>
     <!--li>

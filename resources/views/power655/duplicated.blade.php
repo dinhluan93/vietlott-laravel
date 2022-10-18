@@ -47,7 +47,7 @@
             <div class="pagin m-3"></div>
         </div>
     </div>
-    <div class="col-md-10">
+    <!--div class="col-md-10">
         <div class="card-box">
             <h4 class="header-title mb-3">Random Number</h4>
             <div class="table-responsive">
@@ -63,22 +63,22 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($randomLottery as $key => $value)
+                        foreach($randomLottery as $key => $value)
                         <tr>
-                            @foreach($value as $numberValue)
-                            <td>{{$numberValue}}</td>
-                            @endforeach
+                            foreach($value as $numberValue)
+                            <td>$numberValue</td>
+                            endforeach
                         </tr>
-                        @endforeach
+                        endforeach
                     </tbody>
                 </table>
             </div>
         </div>
-    </div>
+    </div-->
 </div>
 <script>
-    setTimeout(()=>{
-        window.location.reload();
-    },1000);
+    // setTimeout(()=>{
+    //     window.location.reload();
+    // },1000);
 </script>
 @endsection
