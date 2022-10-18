@@ -44,7 +44,10 @@ class Power655Controller extends Controller
     {
         $stage = $request->has("stages") ? explode(",", $request->stages) : [];
         //get top duplicated
-        $data = $this->power655Service->listDuplicatedNumber(4, $stage)->all();
+        //$data = $this->power655Service->listDuplicatedNumber(4, $stage)->all();
+        //dd($data);
+        $dataGenerate = $this->power655Service->listGenerateLotteryToday();
+        //$dataGenerate = $this->power655Service->listGenerateLottery();
         //get list 6/55
         $data655 = $this->power655Service->listPower655();
         $data655->withPath(
@@ -54,7 +57,7 @@ class Power655Controller extends Controller
         );
         $stages = $this->power655Service->getStagesLatest();
         return view("power655.suggest_number", [
-            "data" => $data,
+            "dataGenerate" => $dataGenerate,
             "data655" => $data655,
             "stages" => $stages,
         ]);
@@ -71,9 +74,27 @@ class Power655Controller extends Controller
         $topNumber6 = $topDuplicateNumber[5];
         $topNumber7 = $topDuplicateNumber[6];
         $data = $this->power655Service->listAfterTopDuplicateNumber();
+
+        $todayAdded = $this->power655Service->totalTodayGenerateLottery();
+        if ($todayAdded == 0) {
+            for ($i = 0; $i < 20; $i++) {
+                $this->power655Service->saveRandomLottery655(
+                    $data[0][array_rand($data[0], 1)],
+                    $data[1][array_rand($data[1], 1)],
+                    $data[2][array_rand($data[2], 1)],
+                    $data[3][array_rand($data[3], 1)],
+                    $data[4][array_rand($data[4], 1)],
+                    $data[5][array_rand($data[5], 1)]
+                );
+            }
+        }
+
+        $dataGenerate = $this->power655Service->listGenerateLottery();
+
         return view("power655.random_with_match", [
             "data" => $data,
             "dataAll" => collect(array_merge(...$data))->sort(),
+            "dataGenerate" => $dataGenerate,
             "topNumber1" => $topNumber1,
             "topNumber2" => $topNumber2,
             "topNumber3" => $topNumber3,

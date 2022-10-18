@@ -131,7 +131,6 @@
         <div class="card-box">
             <h4 class="header-title mb-3">All Result Flows</h4>
             <div>
-                {{dd($dataAll)}}
                 @foreach($dataAll as $key => $value)
                 <div class="list-inline-item mb-2">
                     <span class="number-match border-info border mr-2">{{$value}}</span>
@@ -139,7 +138,43 @@
                 @endforeach
             </div>
         </div>
+        <div class="card-box">
+            <h4 class="header-title mb-3">Random with Flows</h4>
+            <div class="table-responsive">
+                <table class="table table-hover table-centered mb-0">
+                    <thead>
+                        <tr class="">
+                            <th>#</th>
+                            <th>Stages</th>
+                            <th>NO. 1</th>
+                            <th>NO. 2</th>
+                            <th>NO. 3</th>
+                            <th>NO. 4</th>
+                            <th>NO. 5</th>
+                            <th>NO. 6</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach($dataGenerate as $key => $value)
+                        <tr>
+                            <td>{{$key+1}}</td>
+                            <td>{{$value->stages}}</td>
+                            <td><span class="number-match border-info border">{{$value->number_1}}</span></td>
+                            <td><span class="number-match border-info border">{{$value->number_2}}</span></td>
+                            <td><span class="number-match border-info border">{{$value->number_3}}</span></td>
+                            <td><span class="number-match border-info border">{{$value->number_4}}</span></td>
+                            <td><span class="number-match border-info border">{{$value->number_5}}</span></td>
+                            <td><span class="number-match border-info border">{{$value->number_6}}</span></td>
+                            <td>{{$value->created_at}}</td>
+                        </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
+</div>
 </div>
 @endsection
 @push('scripts-footer')

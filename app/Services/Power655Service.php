@@ -232,7 +232,6 @@ class Power655Service
         $number2 = $this->power655Repository->topDuplicateNumber(2, 20);
         foreach ($number2 as $value) {
             if (!in_array($value->number_2, $data1)) {
-                //dd($value->number_2);
                 $data2[] = $value->number_2;
             }
         }
@@ -279,5 +278,20 @@ class Power655Service
             }
         }
         return [$data1, $data2, $data3, $data4, $data5, $data6];
+    }
+
+    public function listGenerateLottery()
+    {
+        return $this->power655GenerateRepository->getGenerate();
+    }
+
+    public function totalTodayGenerateLottery()
+    {
+        return $this->power655GenerateRepository->checkTodayAdded();
+    }
+
+    public function listGenerateLotteryToday()
+    {
+        return $this->power655GenerateRepository->getGenerateToday();
     }
 }
