@@ -43,27 +43,28 @@ class Power655GenerateRepository extends BaseRepository implements
     public function checkTodayAdded()
     {
         return $this->model
-            ->whereBetween(
-                "created_at",
-                [
-                    Carbon::now()->format("Y-m-d") . " 00:00:00", Carbon::now()->format("Y-m-d H:i:s")
-                ]
-            )->count();
+            ->whereBetween("created_at", [
+                Carbon::now()->format("Y-m-d") . " 00:00:00",
+                Carbon::now()->format("Y-m-d H:i:s"),
+            ])
+            ->count();
     }
 
     public function getGenerate()
     {
-        return $this->model->orderBy("stages", "DESC")
+        return $this->model
+            ->orderBy("stages", "DESC")
             ->paginate(config("pagination.limit"));
     }
 
     public function getGenerateToday()
     {
-        return $this->model->whereBetween(
-            "created_at",
-            [
-                Carbon::now()->format("Y-m-d") . " 00:00:00", Carbon::now()->format("Y-m-d H:i:s")
-            ]
-        )->orderBy("stages", "DESC")->get();
+        return $this->model
+            ->whereBetween("created_at", [
+                Carbon::now()->format("Y-m-d") . " 00:00:00",
+                Carbon::now()->format("Y-m-d H:i:s"),
+            ])
+            ->orderBy("stages", "DESC")
+            ->get();
     }
 }
