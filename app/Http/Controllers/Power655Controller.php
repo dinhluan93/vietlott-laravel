@@ -105,13 +105,9 @@ class Power655Controller extends Controller
         ]);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function randomWithMatchPost(Request $request)
     {
+        $this->power655Service->deleteRandomToday();
+        return redirect()->back();
     }
 }

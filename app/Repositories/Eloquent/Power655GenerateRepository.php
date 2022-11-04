@@ -67,4 +67,14 @@ class Power655GenerateRepository extends BaseRepository implements
             ->orderBy("stages", "DESC")
             ->get();
     }
+
+    public function deleteTodayAdded()
+    {
+        return $this->model
+            ->whereBetween("created_at", [
+                Carbon::now()->format("Y-m-d") . " 00:00:00",
+                Carbon::now()->format("Y-m-d H:i:s"),
+            ])
+            ->delete();
+    }
 }

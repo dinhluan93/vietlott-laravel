@@ -294,4 +294,9 @@ class Power655Service
     {
         return $this->power655GenerateRepository->getGenerateToday();
     }
+
+    public function deleteRandomToday()
+    {
+        return $this->power655GenerateRepository->deleteTodayAdded();
+    }
 }
