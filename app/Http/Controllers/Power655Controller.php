@@ -45,7 +45,6 @@ class Power655Controller extends Controller
         $stage = $request->has("stages") ? explode(",", $request->stages) : [];
         //get top duplicated
         //$data = $this->power655Service->listDuplicatedNumber(4, $stage)->all();
-        //dd($data);
         $dataGenerate = $this->power655Service->listGenerateLotteryToday();
         //$dataGenerate = $this->power655Service->listGenerateLottery();
         //get list 6/55
