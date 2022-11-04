@@ -32,6 +32,11 @@ Route::get("/power655/random-with-match", [
     "randomWithMatch",
 ])->name("power655.randomWithMatch");
 
+Route::post("/power655/random-with-match", [
+    Power655Controller::class,
+    "randomWithMatchPost",
+])->name("power655.randomWithMatchPost");
+
 Route::resources([
     "home" => HomeController::class,
     "power655" => Power655Controller::class,

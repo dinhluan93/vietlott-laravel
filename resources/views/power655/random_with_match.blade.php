@@ -106,7 +106,7 @@
     <div class="col-md-5">
         <div class="card-box">
             <h4 class="header-title mb-3">Flows</h4>
-            <ul class="m-0 pl-3">
+            <ul class="m-0 pl-3 mb-4">
                 <li>Number 1 : 15 number</li>
                 <li>Number 2 : 20 number , is different Number 1</li>
                 <li>Number 3 : 25 number , is different Number 2 and number 1</li>
@@ -114,6 +114,10 @@
                 <li>Number 5 : 10 number , is different Number 4 and number 3</li>
                 <li>Number 6 : 13 number , is different Number 5 and number 4</li>
             </ul>
+            <form method="post">
+                @csrf
+                <button type="submit" class="btn btn-primary">Random</button>
+            </form>
         </div>
         <div class="card-box">
             <h4 class="header-title mb-3">Result Flows</h4>

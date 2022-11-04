@@ -30,7 +30,6 @@ class Power655Controller extends Controller
         $data = $this->power655Service->listDuplicatedNumber();
         $dataSuggest = [];
         foreach ($data as $key => $value) {
-            //$dataSuggest[] = $key;
             array_push($dataSuggest, $key);
         }
         //$randomLottery = $this->power655Service->randomLottery($dataSuggest);
@@ -45,7 +44,6 @@ class Power655Controller extends Controller
         $stage = $request->has("stages") ? explode(",", $request->stages) : [];
         //get top duplicated
         //$data = $this->power655Service->listDuplicatedNumber(4, $stage)->all();
-        //dd($data);
         $dataGenerate = $this->power655Service->listGenerateLotteryToday();
         //$dataGenerate = $this->power655Service->listGenerateLottery();
         //get list 6/55
@@ -105,13 +103,9 @@ class Power655Controller extends Controller
         ]);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function randomWithMatchPost(Request $request)
     {
+        $this->power655Service->deleteRandomToday();
+        return redirect()->back();
     }
 }
