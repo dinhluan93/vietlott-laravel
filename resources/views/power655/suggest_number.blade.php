@@ -250,7 +250,7 @@
                                     <b class="text-danger">500.000</b> VND
                                     @endif
                                     @if($countMath==3)
-                                    <b class="text-danger">500.000</b> VND
+                                    <b class="text-danger">50.000</b> VND
                                     @endif
                                 </p>
                             </td>

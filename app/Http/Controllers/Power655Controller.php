@@ -72,17 +72,36 @@ class Power655Controller extends Controller
         $topNumber6 = $topDuplicateNumber[5];
         $topNumber7 = $topDuplicateNumber[6];
         $data = $this->power655Service->listAfterTopDuplicateNumber();
-
+        $numberRange = [];
+        for ($i = 1; $i <= 55; $i++) {
+            array_push($numberRange, $i);
+        }
+        $dataRand = $this->power655Service->randomLottery($numberRange);
+        //dd($dataRand);
         $todayAdded = $this->power655Service->totalTodayGenerateLottery();
         if ($todayAdded == 0) {
-            for ($i = 0; $i < 20; $i++) {
+            /*for ($i = 0; $i < 20; $i++) {
                 $this->power655Service->saveRandomLottery655(
-                    $data[0][array_rand($data[0], 1)],
-                    $data[1][array_rand($data[1], 1)],
-                    $data[2][array_rand($data[2], 1)],
-                    $data[3][array_rand($data[3], 1)],
-                    $data[4][array_rand($data[4], 1)],
-                    $data[5][array_rand($data[5], 1)]
+                    $data[0][array_rand($numberRange, 1)],
+                    $data[1][array_rand($numberRange, 1)],
+                    $data[2][array_rand($numberRange, 1)],
+                    $data[3][array_rand($numberRange, 1)],
+                    $data[4][array_rand($numberRange, 1)],
+                    $data[5][array_rand($numberRange, 1)]
+                );*/
+
+            foreach ($dataRand as $key => $value) {
+                $element = [];
+                foreach ($value as $keys => $values) {
+                    array_push($element, $values);
+                }
+                $this->power655Service->saveRandomLottery655(
+                    $element[0],
+                    $element[1],
+                    $element[2],
+                    $element[3],
+                    $element[4],
+                    $element[5],
                 );
             }
         }

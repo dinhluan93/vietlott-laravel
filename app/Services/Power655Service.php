@@ -123,7 +123,7 @@ class Power655Service
 
     public function randomLottery($data)
     {
-        $totalRow = 40;
+        $totalRow = 25;
         $lottery = [];
         for ($i = 0; $i < $totalRow; $i++) {
             $number = [];
@@ -139,14 +139,14 @@ class Power655Service
                 $numberSorted = array_values(
                     (array) $numberCollectSorted->values()
                 )[0];
-                /*$this->saveRandomLottery655(
+                $this->saveRandomLottery655(
                     $numberSorted[0],
                     $numberSorted[1],
                     $numberSorted[2],
                     $numberSorted[3],
                     $numberSorted[4],
                     $numberSorted[5]
-                );*/
+                );
             }
         }
         return $lottery;
@@ -192,7 +192,7 @@ class Power655Service
         }
     }
 
-    private function randomNumberInArray($data)
+    public function randomNumberInArray($data)
     {
         return $data[array_rand($data, 1)];
     }
