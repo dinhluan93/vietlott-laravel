@@ -101,7 +101,7 @@ class Power655Controller extends Controller
                     $element[2],
                     $element[3],
                     $element[4],
-                    $element[5],
+                    $element[5]
                 );
             }
         }
