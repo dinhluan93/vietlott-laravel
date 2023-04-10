@@ -15,6 +15,6 @@ interface Power655GenerateRepositoryInterface extends RepositoryInterface
     );
     public function checkTodayAdded();
     public function getGenerate();
-    public function getGenerateToday();
+    public function getGenerateToday($limit = 20);
     public function deleteTodayAdded();
 }

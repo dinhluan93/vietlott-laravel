@@ -292,7 +292,7 @@ class Power655Service
 
     public function listGenerateLotteryToday()
     {
-        return $this->power655GenerateRepository->getGenerateToday();
+        return $this->power655GenerateRepository->getGenerateToday(19);
     }
 
     public function deleteRandomToday()

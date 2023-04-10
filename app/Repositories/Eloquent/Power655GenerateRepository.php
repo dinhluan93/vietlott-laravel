@@ -57,6 +57,7 @@ class Power655GenerateRepository extends BaseRepository implements
             ->paginate(config("pagination.limit"));
     }
 
+    /*
     public function getGenerateToday()
     {
         return $this->model
@@ -64,6 +65,14 @@ class Power655GenerateRepository extends BaseRepository implements
                 Carbon::now()->format("Y-m-d") . " 00:00:00",
                 Carbon::now()->format("Y-m-d H:i:s"),
             ])
+            ->orderBy("stages", "DESC")
+            ->get();
+    }*/
+
+    public function getGenerateToday($limit = 20)
+    {
+        return $this->model
+            ->limit($limit)
             ->orderBy("stages", "DESC")
             ->get();
     }

@@ -72,15 +72,15 @@ class Power655Controller extends Controller
         $topNumber6 = $topDuplicateNumber[5];
         $topNumber7 = $topDuplicateNumber[6];
         $data = $this->power655Service->listAfterTopDuplicateNumber();
-        $numberRange = [];
+        /*$numberRange = [];
         for ($i = 1; $i <= 55; $i++) {
             array_push($numberRange, $i);
-        }
-        $dataRand = $this->power655Service->randomLottery($numberRange);
+        }*/
+        //$dataRand = $this->power655Service->randomLottery($numberRange);
         //dd($dataRand);
-        $todayAdded = $this->power655Service->totalTodayGenerateLottery();
-        if ($todayAdded == 0) {
-            /*for ($i = 0; $i < 20; $i++) {
+        //$todayAdded = $this->power655Service->totalTodayGenerateLottery();
+        //if ($todayAdded == 0) {
+        /*for ($i = 0; $i < 20; $i++) {
                 $this->power655Service->saveRandomLottery655(
                     $data[0][array_rand($numberRange, 1)],
                     $data[1][array_rand($numberRange, 1)],
@@ -89,7 +89,7 @@ class Power655Controller extends Controller
                     $data[4][array_rand($numberRange, 1)],
                     $data[5][array_rand($numberRange, 1)]
                 );*/
-
+        /*
             foreach ($dataRand as $key => $value) {
                 $element = [];
                 foreach ($value as $keys => $values) {
@@ -103,8 +103,8 @@ class Power655Controller extends Controller
                     $element[4],
                     $element[5]
                 );
-            }
-        }
+            }*/
+        //}
 
         $dataGenerate = $this->power655Service->listGenerateLottery();
 
