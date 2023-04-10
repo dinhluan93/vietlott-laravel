@@ -22,11 +22,11 @@
                 <a href="{{route('power655.duplicated')}}">Top Duplicated</a>
             </li>
             <li>
-                <a href="{{route('power655.suggestNumber')}}">Suggest Duplicated</a>
+                <a href="{{route('power655.suggestNumber')}}">Random suggest</a>
             </li>
-            <li>
-                <a href="{{route('power655.randomWithMatch')}}">Random with Match</a>
-            </li>
+            <!--li>
+                <a href="{{}}">Random with Match</a>
+            </li-->
         </ul>
     </li>
     <!--li>

@@ -72,7 +72,20 @@
 <div class="row">
     <div class="col-md-12">
         <div class="card-box">
-            <h4 class="header-title mb-3">Match Number</h4>
+
+            <div class="row mb-2">
+                <div class="col-lg-8">
+                    <h4 class="header-title mb-3">Match Number</h4>
+                </div>
+                <div class="col-lg-4">
+                    <form method="post">
+                        @csrf
+                        <div class="text-lg-right">
+                            <button type="submit" class="btn btn-primary waves-effect mb-2">Random</button>
+                        </div>
+                    </form>
+                </div><!-- end col-->
+            </div>
             <div class="table-responsive">
                 <table class="table table-hover table-centered mb-0">
                     <thead>
@@ -168,6 +181,17 @@
                         $countMath = $countMath+1;
                         }
 
+                        //Number 7
+                        $number_7=0;
+                        if($value->number_7==$valueToday->number_1 ||
+                        $value->number_7==$valueToday->number_2 ||
+                        $value->number_7==$valueToday->number_3 ||
+                        $value->number_7==$valueToday->number_4 ||
+                        $value->number_7==$valueToday->number_5 ||
+                        $value->number_7==$valueToday->number_6){
+                        $number_7 = $value->number_7;
+                        }
+
                         @endphp
                         <tr>
                             <td colspan="2" class="text-center">
@@ -233,6 +257,11 @@
                                     $value->number_5==$valueToday->number_6 ||
                                     $value->number_6==$valueToday->number_6)? 'bg-success text-white' : ''
                                 }}">{{$valueToday->number_6}}</span>
+                            </td>
+                            <td>
+                                @if($number_7>0)
+                                <span class="number-match border-warning border bg-warning text-white">{{$number_7}}</span>
+                                @endif
                             </td>
                             <td colspan="3" class="text-center">
                                 <p>Total match : {{$countMath}}</p>

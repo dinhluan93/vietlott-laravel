@@ -61,6 +61,17 @@ class Power655Controller extends Controller
         ]);
     }
 
+    public function suggestNumberPost(){
+        $numberRange = [];
+        for ($i = 1; $i <= 55; $i++) {
+            array_push($numberRange, $i);
+        }
+        $this->power655Service->deleteRandomToday();
+        $this->power655Service->randomLottery($numberRange);
+        return redirect()->back();
+    }
+
+    /*
     public function randomWithMatch(Request $request)
     {
         $topDuplicateNumber = $this->power655Service->topDuplicateNumber();
@@ -103,7 +114,7 @@ class Power655Controller extends Controller
                     $element[4],
                     $element[5]
                 );
-            }*/
+            }
         //}
 
         $dataGenerate = $this->power655Service->listGenerateLottery();
@@ -126,5 +137,5 @@ class Power655Controller extends Controller
     {
         $this->power655Service->deleteRandomToday();
         return redirect()->back();
-    }
+    }*/
 }

@@ -27,15 +27,23 @@ Route::get("/power655/suggest-number", [
     "suggestNumber",
 ])->name("power655.suggestNumber");
 
+Route::post("/power655/suggest-number", [
+    Power655Controller::class,
+    "suggestNumberPost",
+])->name("power655.suggestNumberPost");
+
+/*
 Route::get("/power655/random-with-match", [
     Power655Controller::class,
     "randomWithMatch",
 ])->name("power655.randomWithMatch");
 
+
 Route::post("/power655/random-with-match", [
     Power655Controller::class,
     "randomWithMatchPost",
 ])->name("power655.randomWithMatchPost");
+*/
 
 Route::resources([
     "home" => HomeController::class,
