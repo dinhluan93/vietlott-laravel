@@ -61,7 +61,8 @@ class Power655Controller extends Controller
         ]);
     }
 
-    public function suggestNumberPost(){
+    public function suggestNumberPost()
+    {
         $numberRange = [];
         for ($i = 1; $i <= 55; $i++) {
             array_push($numberRange, $i);
@@ -87,11 +88,11 @@ class Power655Controller extends Controller
         for ($i = 1; $i <= 55; $i++) {
             array_push($numberRange, $i);
         }*/
-        //$dataRand = $this->power655Service->randomLottery($numberRange);
-        //dd($dataRand);
-        //$todayAdded = $this->power655Service->totalTodayGenerateLottery();
-        //if ($todayAdded == 0) {
-        /*for ($i = 0; $i < 20; $i++) {
+    //$dataRand = $this->power655Service->randomLottery($numberRange);
+    //dd($dataRand);
+    //$todayAdded = $this->power655Service->totalTodayGenerateLottery();
+    //if ($todayAdded == 0) {
+    /*for ($i = 0; $i < 20; $i++) {
                 $this->power655Service->saveRandomLottery655(
                     $data[0][array_rand($numberRange, 1)],
                     $data[1][array_rand($numberRange, 1)],
@@ -100,7 +101,7 @@ class Power655Controller extends Controller
                     $data[4][array_rand($numberRange, 1)],
                     $data[5][array_rand($numberRange, 1)]
                 );*/
-        /*
+    /*
             foreach ($dataRand as $key => $value) {
                 $element = [];
                 foreach ($value as $keys => $values) {
